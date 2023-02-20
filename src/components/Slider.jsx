@@ -48,9 +48,10 @@ const Move = styled.div`
 const ImgCont = styled.div`
   height: 100%;
   flex: 1;
+  padding: 25px 0px 0px 50px;
 `;
 
-const Image = styled.div`
+const Image = styled.img`
   height: 80%;
 `;
 
