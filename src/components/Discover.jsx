@@ -1,5 +1,6 @@
 import { Send } from '@material-ui/icons';
-import React from 'react'
+import React, { useState } from 'react'
+import { Alert } from 'react-bootstrap';
 import styled from 'styled-components'
 const Container = styled.div`
   height: 60vh;
@@ -44,16 +45,28 @@ const Button = styled.button`
 `;
 
 const Discover = () => {
+
+  const [showAlert, setShowAlert] = useState(false)
+
+  const send = (e) => {
+    e.preventDefault();
+    setShowAlert(true);
+  }
+
   return (
     <Container>
         <Title>Discover</Title>
         <Desc>Get timely notifications from your favorite products</Desc>
         <InputContainer>
           <Input placeholder="Your email"/>
-          <Button>
+          <Button onClick={send}>
             <Send/>
           </Button>
         </InputContainer>
+        {
+          showAlert?<Alert key="success" variant="success" style={{ marginTop: 8}}>Congratulations! You will be the first to be notified of our latest collections.</Alert>:<></>
+        }
+        
     </Container>
   );
 };
