@@ -3,9 +3,10 @@ import Home from "./pages/Home";
 import ProductList from "./pages/ProductList";
 import React from "react";
 import { Router } from "@reach/router";
+import Register from "./pages/Register";
 
 const App = () => {
-  return <Home/>;
+  return <Register/>;
 };
 
 export default App;
