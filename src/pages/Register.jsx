@@ -1,4 +1,6 @@
 import React from 'react';
+import { useState } from 'react';
+import { Alert } from 'react-bootstrap';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -54,6 +56,14 @@ const Button = styled.button`
 `;
 
 const Register = () => {
+
+    const [showAlert, setShowAlert] = useState(false);
+
+    const createAccount = (e) => {
+        e.preventDefault();
+        setShowAlert(true);
+    }
+
   return (
     <Container>
         <Wrapper>
@@ -69,7 +79,13 @@ const Register = () => {
                     By creating an account, I consent to the processing of my personal
                     data in accordance with the <b>PRIVACY POLICY</b>
                 </Agreement>
-                <Button>CREATE</Button>
+                <Button onClick={createAccount}>CREATE</Button>
+                <br/>
+                {
+                    showAlert ? 
+                    <Alert key="success" variant="success" style={{width: '100%', marginTop: 8}}>Account created successfully!</Alert>
+                    : <></>
+                }
             </Form>
         </Wrapper>
     </Container>

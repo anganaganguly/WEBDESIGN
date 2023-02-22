@@ -1,5 +1,6 @@
 import { Badge } from '@material-ui/core';
 import { Search, ShoppingCartOutlined } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -72,8 +73,8 @@ const Navbar = () => {
            </Left>
            <Center><Logo>SHOPIFY</Logo></Center>
            <Right>
-            <MenuItem>REGISTER</MenuItem>
-            <MenuItem>SIGN IN</MenuItem>
+           <Link to="/register"><MenuItem>REGISTER</MenuItem></Link>
+           <Link to="/login"><MenuItem>SIGN IN</MenuItem></Link>
             <MenuItem>
                 <Badge badgeContent={4} color="primary">
                   <ShoppingCartOutlined />
