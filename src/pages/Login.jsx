@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {useNavigate} from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Container = styled.div`
   width: 100vw;
@@ -58,19 +58,48 @@ const Link = styled.a`
 
 const Login = () => {
 
-    const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const handleLogin = () => { 
+    const token = 'example-token'; 
+    localStorage.setItem('token', token); 
+    setIsLoggedIn(true); 
+  }; 
+  
+  const handleLogout = () => { 
+    localStorage.removeItem('token'); 
+    setIsLoggedIn(false); 
+  };
 
   return (
     <Container>
       <Wrapper>
-        <Title>SIGN IN</Title>
-        <Form>
-          <Input placeholder="username" />
-          <Input placeholder="password" />
-          <Button onClick={() => navigate('/') }>LOGIN</Button>
-          <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
-          <Link>CREATE A NEW ACCOUNT</Link>
-        </Form>
+        
+        <div> 
+          {isLoggedIn ? ( 
+            <div> 
+              <p>Welcome user!</p> 
+              <button onClick={handleLogout}>Logout</button> 
+            </div> 
+          ) : ( 
+            <div> 
+              <Title>SIGN IN</Title>
+              <p>Please log in</p> 
+              <Form>
+                <Input placeholder="username" />
+                <Input placeholder="password" />
+              </Form>
+              <button onClick={handleLogin}>Login</button> 
+            </div> 
+          )} 
+        </div>
       </Wrapper>
     </Container>
   );

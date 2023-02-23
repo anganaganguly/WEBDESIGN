@@ -58,6 +58,7 @@ const MenuItem = styled.div`
   cursor: pointer;
   margin-left: 25px;
   font-weight: bold;
+  color: black;
 `;
 
 const Navbar = () => {
@@ -73,10 +74,10 @@ const Navbar = () => {
            </Left>
            <Center><Logo>SHOPIFY</Logo></Center>
            <Right>
-           <Link to="/register"><MenuItem>REGISTER</MenuItem></Link>
-           <Link to="/login"><MenuItem>SIGN IN</MenuItem></Link>
+           <Link style={{color: 'black'}} to="/register" color="secondary"><MenuItem>REGISTER</MenuItem></Link>
+           <Link style={{color: 'black'}} to="/login"><MenuItem>SIGN IN</MenuItem></Link>
             <MenuItem>
-                <Badge badgeContent={4} color="primary">
+                <Badge badgeContent={4} color="dark">
                   <ShoppingCartOutlined />
                 </Badge>
             </MenuItem>
