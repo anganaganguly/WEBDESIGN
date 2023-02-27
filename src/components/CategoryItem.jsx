@@ -39,7 +39,7 @@ const Button = styled.button`
   font-weight: 600;
 `;
 
-const CategoryItem = ({ item }) => {
+const CategoryItem = ({item}) => {
   return (
     <Container>
         <Image src={item.img} />

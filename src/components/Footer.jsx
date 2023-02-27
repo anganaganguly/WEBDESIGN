@@ -77,7 +77,7 @@ const Footer = () => {
         <Left>
             <Logo></Logo>
             <Desc>
-            Revamp your wardrobe with Urbanic and own in trend styles at the
+            Revamp your wardrobe with Shopify and own in trend styles at the
             best prices offered in a responsible way. Unleash the shopaholic in you!
             Shopify brings you affordable clothing and accessories. 100% Assured.
             </Desc>

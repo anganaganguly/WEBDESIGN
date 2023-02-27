@@ -74,13 +74,16 @@ const Navbar = () => {
            </Left>
            <Center><Logo>SHOPIFY</Logo></Center>
            <Right>
-           <Link style={{color: 'black'}} to="/register" color="secondary"><MenuItem>REGISTER</MenuItem></Link>
+           <Link style={{color: 'black'}} to="/register"><MenuItem>REGISTER</MenuItem></Link>
            <Link style={{color: 'black'}} to="/login"><MenuItem>SIGN IN</MenuItem></Link>
-            <MenuItem>
+           <Link style={{color: 'black'}} to="/product"><MenuItem>PRODUCTS</MenuItem></Link>
+           <Link to="/cart">
+              <MenuItem>
                 <Badge badgeContent={4} color="dark">
                   <ShoppingCartOutlined />
                 </Badge>
-            </MenuItem>
+              </MenuItem>
+            </Link>
            </Right>
         </Wrapper>
     </Container>

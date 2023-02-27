@@ -64,13 +64,18 @@ const Icon = styled.div`
 
 
 const ProductItem = ({ item }) => {
+
+  const addToCart = () => {
+    console.log("Add To CART");
+  }
+
   return (
     <Container>
         <Circle/>
         <Image src={item.img}/>
         <Info>
             <Icon>
-                <ShoppingCartOutlined/>
+                <button onClick={ () => addToCart(item)}><ShoppingCartOutlined/></button>
             </Icon>
             <Icon>
                 <SearchOutlined/>
