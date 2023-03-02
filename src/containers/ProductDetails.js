@@ -1,181 +1,120 @@
-// import React, { useEffect } from "react";
-// import axios from "axios";
-// import { useParams } from "react-router-dom";
-// import { useDispatch, useSelector } from "react-redux";
-// import {
-//     selectedProduct,
-//     removeSelectedProduct,
-// } from "../redux/actions/productsActions";
-
-
-// //using param we get id and using id we call api
-// const ProductDetails = () => {
-//   const { productId } = useParams();
-
-//   let product = useSelector((state) => state.product);
-//   const { image, title, price, category, description } = product;
-//   const dispatch = useDispatch();
-
-//   const fetchProductDetail = async (id) => {
-//     const response = await axios
-//       .get(`https://fakestoreapi.com/products/${id}`)
-//       .catch((err) => {
-//         console.log("Err: ", err);
-//       });
-//     dispatch(selectedProduct(response.data));
-//   };
-
-
-//   useEffect(() => {
-//     if (productId && productId !== "") fetchProductDetail(productId);
-//     return () => {
-//       dispatch(removeSelectedProduct());
-//     };
-//   }, [productId]);
-
-//   return (
-//     <div className="ui grid container">
-//       {Object.keys(product).length === 0 ? (
-//         <div>...Loading</div>
-//       ) : (
-//         <div className="ui placeholder segment">
-//           <div className="ui two column stackable center aligned grid">
-//             <div className="ui vertical divider">AND</div>
-//             <div className="middle aligned row">
-//               <div className="column lp">
-//                 <img className="ui fluid image" src={image} />
-//               </div>
-
-//               <div className="column rp">
-//                 <h1>{title}</h1>
-//                 <h2>
-//                   <a className="ui teal tag label">Rs{price}</a>
-//                 </h2>
-//                 <h3 className="ui brown block header">{category}</h3>
-//                 <p>{description}</p>
-//                 <div className="ui vertical animated button" tabIndex="0">
-//                   <div className="hidden content">
-//                     <i className="shop icon"></i>
-//                   </div>
-//                   <div className="visible content">Add to Cart</div>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       )}
-
-//     </div>
-
-//   );
-
-// };
-
-
-
-// export default ProductDetails;
-
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { selectedProduct,removeSelectedProduct} from "../redux/actions/productsActions";
+import { selectedProduct, removeSelectedProduct } from "../redux/actions/productsActions";
+import "../App.css";
 
-
-//using param we get id and using id we call api
 const ProductDetails = () => {
   const { productId } = useParams();
-  let product = useSelector((state) => state.product);
-  const { image, title, price, category, description } = product;
+  const product = useSelector((state) => state.product);
   const dispatch = useDispatch();
-  const fetchProductDetail = async (id) => {
-    const response = await axios.get(`https://fakestoreapi.com/products/${id}`)
-      .catch((err) => {
-        console.log("Err: ", err);
-      });
-    dispatch(selectedProduct(response.data));
-  };
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (productId && productId !== "") fetchProductDetail(productId);
+    const fetchProductDetail = async (id) => {
+      const response = await axios.get(`https://fakestoreapi.com/products/${id}`).catch((err) => {
+        console.log("Err: ", err);
+      });
+      dispatch(selectedProduct(response.data));
+      setIsLoading(false);
+    };
+
+    if (productId && productId !== "") {
+      fetchProductDetail(productId);
+    }
+
     return () => {
       dispatch(removeSelectedProduct());
     };
-  }, [productId]);
+  }, [productId, dispatch]);
 
   const productDetails = {
-    marginTop: "30px"
-  }
-
-  const productImage = {
-    maxWidth: "100%"
-  }
+    marginTop: "20px",
+  };
 
   const imageColumn = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
-  }
+    maxWidth: "50%",
+  };
+
+  const productImage = {
+    maxHeight: "500px",
+  };
 
   const detailsColumn = {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "flex-start",
-    paddingLeft: "30px"
-  }
-
+    maxWidth: "50%",
+  };
 
   const productTitle = {
-    fontSize: "2.5rem",
-    marginBottom: "10px"
-  }
+    fontSize: "2rem",
+    fontWeight: "bold",
+    marginBottom: "10px",
+  };
 
+    
   const productPrice = {
-    marginBottom: "20px"
-  }
-
-  const productCategory = {
     fontSize: "1.5rem",
     fontWeight: "bold",
-    marginBottom: "10px"
-  }
+  };
+
+  const productCategory = {
+    fontSize: "1.2rem",
+    marginTop: "20px",
+  };
 
   const productDescription = {
-    fontSize: "1.2rem",
-    marginBottom: "20px"
-  }
-
- 
+    marginTop: "20px",
+  };
 
   const cartButton = {
-    marginTop: "30px"
-  }
+    marginTop: "20px",
+    width:"auto",
+    border: "4px solid #007bff",
+    borderRadius: "10px",
+    display:" inline-block",
+    padding: "10px 20px",
+    backgroundColor: "#007bff",
+    color: "#fff",
+    borderRadius: "4px",
+    cursor: "pointer",
+    transition: "background-color 0.3s ease"
+  };
 
   return (
     <div className="ui grid container" style={productDetails}>
-      {Object.keys(product).length === 0 ? (
-        <div>...Loading</div>
+      {isLoading ? (
+        <div>Loading...</div>
       ) : (
-        <div className="ui placeholder segment">
-          <div className="ui two column stackable center aligned grid" >
-            <div className="ui vertical divider">AND</div>
+        <div className="ui segment" style={{paddingTop:"80px",marginTop:"25px"}}>
+          <div className="ui two column stackable center aligned grid">
+            <div className="ui vertical divider"></div>
             <div className="middle aligned row">
-              <div className="column lp" style={imageColumn} >
-                <img className="ui fluid image" src={image} style={productImage}/>
+              <div className="column lp" style={imageColumn}>
+                <img
+                  className="ui fluid image"
+                  src={product.image}
+                  alt="product"
+                  style={productImage}
+                />
               </div>
               <div className="column rp" style={detailsColumn}>
-                <h1 style={productTitle}>{title}</h1>
+                <h1 style={productTitle}>{product.title}</h1>
                 <h2>
-                  <a className="ui teal tag label" style={productPrice}>Rs{price}</a>
+                  <span className="ui teal tag label" style={productPrice}>
+                    Rs {product.price}
+                  </span>
                 </h2>
-                <h3 className="ui brown block header" style={productCategory}>{category}</h3>
-                <p style={productDescription}>{description}</p>
+                <h3 className="ui brown block header" style={productCategory}>
+                  {product.category}
+                </h3>
+                <p style={productDescription}>{product.description}</p>
                 <div className="ui vertical animated button" tabIndex="0">
                   <div className="hidden content">
                     <i className="shop icon"></i>
                   </div>
-                  <div className="visible content" style={cartButton}>Add to Cart</div>
+                  <div className="visible content" style={cartButton}>
+                    Add to Cart
+                  </div>
                 </div>
               </div>
             </div>
@@ -185,7 +124,5 @@ const ProductDetails = () => {
     </div>
   );
 };
-
-
 
 export default ProductDetails;

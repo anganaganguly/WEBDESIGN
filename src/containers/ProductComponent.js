@@ -31,6 +31,8 @@ const ProductComponent = () => {
       display: "flex",
       flexDirection: "row",
       justifyContent: "space-between",
+      textDecoration: 'none',
+      border: "0px solid #ccc",
       // backgroundColor : "green",
     };
 
@@ -70,11 +72,11 @@ const ProductComponent = () => {
                         <img src={image} alt={title} style={{ maxWidth: "100%" }}/>
                       </div>
                       <div className="content" style={contentStyle}>
-                        <div className="header">{title}</div>
+                        <div className="header" style={{fontSize:"16px"}}>{title}</div>
                         <br/>
                         <div className="meta price" style={{ textDecoration: 'none' }}><b>Rs {price}</b></div>
                         <br/>
-                        <div className="meta category">{category}</div>
+                        <div className="meta category" style={{fontSize:"16px"}}>{category}</div>
                       </div>
                     </div>
             </Link>
