@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Cart from "./pages/Cart";
 import ProductDetails from "./containers/ProductDetails";
 import ProductPage from "./containers/ProductListing";
+import "./App.css";
 
 const App = () => {
   return <BrowserRouter>
