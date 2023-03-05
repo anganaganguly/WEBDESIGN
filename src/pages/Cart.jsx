@@ -1,27 +1,40 @@
 import React from 'react';
 import { useState } from 'react';
 
-const Cart = () => {
-
-    const [cartItems, setCartItems] = useState([]);
-
-    const addToCart = (item) => {
-
-        setCartItems([...cartItems, item]);
-
-    };
+const Cart = ({ cartItems, handleAddProduct, handleRemoveProduct, handleCartClearance}) => {
 
     return (
-    <div>
-        <h2>Cart</h2> 
-        <ul> 
-            {cartItems.map((item) => ( 
-            <li key={item.id}> 
-                {item.name} - ${item.price} 
-            </li> 
-            ))} 
-        </ul>
-    </div>
+        <div className="cart-items">
+            <h2 className="cart-items-header">Cart Items</h2>
+            <div className="clear-cart">
+                {cartItems.length >=1 && (
+                    <button className="clear-cart-button" onClick={handleCartClearance}>
+                        Clear Cart
+                    </button>
+                )}
+            </div>
+
+            {cartItems.length ===0 && (
+            <div className="cart-items-empty">No items are added.</div>
+            )}
+
+            <div>
+                {cartItems.map((item) =>(
+                    <div key={item.id} className="cart-items-list">
+                        <img 
+                            className="cart-items-image" 
+                            src={item.image} 
+                            alt={item.name}
+                        />
+                        <div className="cart-items-name">{item.name}</div>
+                        <div className="cart-items-function">
+                            <button className="cart-items-add" onClick={() => handleAddProduct(item)}>+</button>
+                            <button className="cart-items-remove" onClick={() => handleRemoveProduct(item)}>-</button>
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
     );
 };
 

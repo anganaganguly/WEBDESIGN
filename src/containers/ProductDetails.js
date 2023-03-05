@@ -80,6 +80,8 @@ const ProductDetails = () => {
     transition: "background-color 0.3s ease"
   };
 
+  
+
   return (
     <div className="ui grid container" style={productDetails}>
       {isLoading ? (
@@ -112,7 +114,7 @@ const ProductDetails = () => {
                   <div className="hidden content">
                     <i className="shop icon"></i>
                   </div>
-                  <div className="visible content" style={cartButton}>
+                  <div className="visible content" style={cartButton} >
                     Add to Cart
                   </div>
                 </div>
