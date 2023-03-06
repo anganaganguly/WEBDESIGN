@@ -4,6 +4,7 @@ import Register from "./pages/Register";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
+import Products from "./routes/product/Products";
 //import ProductDetails from "./containers/ProductDetails";
 //import ProductPage from "./containers/ProductListing";
 import "./App.css";
@@ -14,7 +15,7 @@ import {popularProducts} from "./data";
 
 const App = () => {
 
-  const { productItems } = popularProducts;
+  const productItems  = popularProducts;
   const [cartItems, setCartItems] = useState([]);
 
   const handleAddProduct = (product) => {
@@ -56,7 +57,7 @@ const App = () => {
       {/* <Route path="cart" element={<Cart/>} />
       <Route path="product" element={<ProductPage/>} />
       <Route path="product/:productId" element={<ProductDetails/>} /> */}
-    <Routes 
+    <Routess 
       productItems={productItems} 
       cartItems={cartItems} 
       handleAddProduct={handleAddProduct}

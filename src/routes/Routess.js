@@ -9,19 +9,18 @@ const Routess = ({ productItems, cartItems, handleAddProduct, handleRemoveProduc
   return (
     <div>
         <Routes>
-            <Route path="/product" exact>
-                <Products 
+            <Route path="/product" 
+                element={<Products 
                     productItems={productItems} 
                     handleAddProduct={handleAddProduct} 
-                />
+                />}>
             </Route>
-            <Route path="/cart" exact>
-                <Cart 
+            <Route path="/cart" element={<Cart 
                     cartItems={cartItems} 
                     handleAddProduct={handleAddProduct} 
                     handleRemoveProduct={handleRemoveProduct}
                     handleCartClearance={handleCartClearance}
-                />
+                />}>
             </Route>
         </Routes>
     </div>

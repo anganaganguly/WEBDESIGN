@@ -43,27 +43,17 @@ export const sliderItems = [
   export const popularProducts = [
 
     {
-
       id: "1",
-
       name: "Polo",
-
       price: 999,
-
       img:"https://66.media.tumblr.com/9e5ad3cdf1d82e73c113a2090d6191c4/tumblr_ng11cfPn0U1qjjm5po2_500.png",
-
     },
 
     {
-
       id: "2",
-
       name: "Polo",
-
       price: 999,
-
       img:"https://i.pinimg.com/originals/27/1b/08/271b081890264e1ebec688adae9e6e7d.png",
-
     },
 
     {

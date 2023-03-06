@@ -2,27 +2,28 @@ import React from 'react';
 import "./Products.css";
 
 const Products = ({ productItems, handleAddProduct}) => {
+    console.log(productItems, " products");
   return (
     <div className="products">
-        {productItems.map((productItem) => (
+        {productItems.map((item) => (
             <div className="card">
                 <div>
                     <img
                         className="product-image"
-                        src={productItem.image}
-                        alt={productItem.name}
+                        src={item.image}
+                        alt={item.name}
                     />
                 </div>
 
                 <div>
-                    <h3 className="product-name">{productItem.name}</h3>
+                    <h3 className="product-name">{item.name}</h3>
                 </div>
-                <div className="product-price"> ${productItem.price}</div>
+                <div className="product-price"> ${item.price}</div>
 
                 <div>
                     <button
                         className="product-add-button"
-                        onClick={() => handleAddProduct(productItem)}
+                        onClick={() => handleAddProduct(item)}
                     >
                         Add to  Cart
                     </button>
