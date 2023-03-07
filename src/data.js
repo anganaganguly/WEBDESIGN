@@ -41,93 +41,61 @@ export const sliderItems = [
   ];
 
   export const popularProducts = [
-
     {
       id: "1",
-      name: "Polo",
-      price: 999,
+      name: "Denim Shorts",
+      price: 699,
       img:"https://66.media.tumblr.com/9e5ad3cdf1d82e73c113a2090d6191c4/tumblr_ng11cfPn0U1qjjm5po2_500.png",
     },
 
     {
       id: "2",
-      name: "Polo",
-      price: 999,
+      name: "Dress",
+      price: 1159,
       img:"https://i.pinimg.com/originals/27/1b/08/271b081890264e1ebec688adae9e6e7d.png",
     },
 
     {
-
       id: "3",
-
-      name: "Polo",
-
-      price: 999,
-
+      name: "Heels",
+      price: 1280,
       img:"https://th.bing.com/th/id/R.d78549af035a08c151e4e3a83c00374d?rik=UhW8oD9k5T2GGQ&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fheels-png-christian-louboutin-heels-png-photos-1040.png&ehk=mwG%2fKnweKSoIfRR3Nnkli14B5HCY1YNaflrpz1TOJbc%3d&risl=&pid=ImgRaw&r=0",
-
     },
 
     {
-
       id: "4",
-
-      name: "Polo",
-
-      price: 999,
-
+      name: "Hand Bag",
+      price: 799,
       img:"https://purepng.com/public/uploads/medium/ladies-hand-bag-kdn.png",
-
     },
 
     {
-
       id: "5",
-
-      name: "Polo",
-
+      name: "Necklace",
       price: 999,
-
       img:"https://th.bing.com/th/id/R.9bfe77109d969e15e4a35f468b6d75f6?rik=2TXasOxGfMwMVA&riu=http%3a%2f%2fwww.pngall.com%2fwp-content%2fuploads%2f2016%2f05%2fJewellery-PNG-Picture.png&ehk=27jDQqPTaJk63Ex49vtPwiIXIQ3uFXV7%2bAQaiM2il7U%3d&risl=&pid=ImgRaw&r=0",
-
     },
 
     {
-
       id: "6",
-
-      name: "Polo",
-
-      price: 999,
-
+      name: "Cap",
+      price: 299,
       img:"https://d3o2e4jr3mxnm3.cloudfront.net/Rocket-Vintage-Chill-Cap_66374_1_lg.png",
-
     },
 
     {
-
       id: "7",
-
-      name: "Polo",
-
-      price: 999,
-
+      name: "Top",
+      price: 499,
       img:"https://64.media.tumblr.com/25280352f28ca557df7552893ce0fcb3/tumblr_pc0z68AFRl1xap368o2_640.png",
-
     },
 
     {
-
       id: "8",
-
-      name: "Polo",
-
-      price: 999,
-
+      name: "Coat",
+      price: 1699,
       img:"https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png",
-
     },
-
   ];
 
   

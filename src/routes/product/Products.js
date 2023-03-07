@@ -1,6 +1,7 @@
 import React from 'react';
 import "./Products.css";
 
+
 const Products = ({ productItems, handleAddProduct}) => {
     console.log(productItems, " products");
   return (
@@ -10,7 +11,7 @@ const Products = ({ productItems, handleAddProduct}) => {
                 <div>
                     <img
                         className="product-image"
-                        src={item.image}
+                        src={item.img}
                         alt={item.name}
                     />
                 </div>
